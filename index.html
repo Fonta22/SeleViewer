@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeleViewer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body class="container">
+    <h1 class="my-3">SeleViewer&trade;</h1>
+    <div>
+        <label for="assignatura">Assignatura: </label>
+        <!-- Falten algunes assignatures. De moment són només les del tecnològic -->
+        <select name="assignatura" id="assignatura">
+            <option value="llca">Català</option>
+            <option value="lles">Castellà</option>
+            <option value="angl">Anglès</option>
+            <option value="hist">Història</option>
+            <option value="mate">Matemàtiques</option>
+            <option value="fisi">Física</option>
+            <option value="tecn">Tecnologia</option>
+        </select>
+
+        <label for="any">Any: </label>
+        <input type="number" name="any" id="any" placeholder="2000 - 2022">
+
+        <label for="mes">Mes: </label>
+        <select name="mes" id="mes">
+            <option value="j">Juny</option>
+            <option value="s">Setembre</option>
+        </select>
+
+        <label for="solucions">Solucions: </label>
+        <select name="solucions" id="solucions">
+            <option value="p">Sí</option>
+            <option value="l">No</option>
+        </select>
+        
+        <br>
+        <button onclick="getUrl()" class="btn btn-dark mt-3">Confirmar</button>
+    </div>
+    
+    <br>
+    <iframe src="" frameborder="0" id="pdfViewer"></iframe>
+    <br>
+
+    <script>
+        function getUrl() {
+            const assignatura = document.getElementById('assignatura').value;
+            const any = document.getElementById('any').value;
+            const mes = document.getElementById('mes').value;
+            const solucions = document.getElementById('solucions').value;
+
+            const pdfViewer = document.getElementById('pdfViewer');
+
+            const pdfUrl = 'https://selecat.cat/pau/pau_' + assignatura + any.slice(-2) + mes + solucions + '.pdf';
+
+            pdfViewer.src = pdfUrl;
+        }
+    </script>
+</body>
+</html>
