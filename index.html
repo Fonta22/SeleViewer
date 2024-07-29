@@ -13,13 +13,13 @@
         <label for="assignatura">Assignatura: </label>
         <!-- Falten algunes assignatures. De moment són només les del tecnològic -->
         <select name="assignatura" id="assignatura">
-            <option value="llca">Català</option>
+            <!--option value="llca">Català</option>
             <option value="lles">Castellà</option>
             <option value="angl">Anglès</option>
             <option value="hist">Història</option>
             <option value="mate">Matemàtiques</option>
             <option value="fisi">Física</option>
-            <option value="tecn">Tecnologia</option>
+            <option value="tecn">Tecnologia</option-->
         </select>
 
         <label for="any">Any: </label>
@@ -45,19 +45,6 @@
     <iframe src="" frameborder="0" id="pdfViewer"></iframe>
     <br>
 
-    <script>
-        function getUrl() {
-            const assignatura = document.getElementById('assignatura').value;
-            const any = document.getElementById('any').value;
-            const mes = document.getElementById('mes').value;
-            const solucions = document.getElementById('solucions').value;
-
-            const pdfViewer = document.getElementById('pdfViewer');
-
-            const pdfUrl = 'https://selecat.cat/pau/pau_' + assignatura + any.slice(-2) + mes + solucions + '.pdf';
-
-            pdfViewer.src = pdfUrl;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
